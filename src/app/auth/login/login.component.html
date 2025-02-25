@@ -1,0 +1,31 @@
+<div class="login-wrapper">
+  <div class="left">
+    <h1 *ngIf="role">{{role}}</h1>
+  </div>
+  <div class="right">
+    <section class="login-container">
+      <form class="login-card" (ngSubmit)="login()">
+        <h3>Login</h3>
+        <div class="input-group">
+          <input type="email" name="email" [(ngModel)]="email" placeholder="Email" required aria-label="Email">
+        </div>
+        <div class="input-group">
+          <input type="password" name="password" [(ngModel)]="password" placeholder="Password" required aria-label="Password">
+        </div>
+        <fieldset class="role-selection">
+          <legend class="visually-hidden">Select Role</legend>
+          <label>
+            <input type="radio" name="role" [(ngModel)]="role" value="admin" (change)="onRoleChange()"> Admin
+          </label>
+          <label>
+            <input type="radio" name="role" [(ngModel)]="role" value="teacher" (change)="onRoleChange()"> Teacher
+          </label>
+          <label>
+            <input type="radio" name="role" [(ngModel)]="role" value="student" (change)="onRoleChange()"> Student
+          </label>
+        </fieldset>
+        <button type="submit">Login</button>
+      </form>
+    </section>
+  </div>
+</div>

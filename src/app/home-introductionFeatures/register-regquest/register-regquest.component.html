@@ -1,0 +1,104 @@
+<div class="wrapper">
+  <div class="left"></div>
+  <div class="right">
+    <div class="admission-container">
+      <h1 class="admission-title">Lyf University Admission</h1>
+      <form class="admission-form" [formGroup]="requestAdd" (ngSubmit)="addRequest()">
+        <fieldset class="form-step">
+          <legend>Хувийн мэдээлэл</legend>
+          <div class="form-group">
+            <label for="first-name">Нэр</label>
+            <input type="text" id="first-name" formControlName="firstName" placeholder="Жишээ: Бат" />
+            <small *ngIf="f['firstName'].touched && f['firstName'].invalid" class="error">Нэр оруулна уу.</small>
+          </div>
+          <div class="form-group">
+            <label for="last-name">Овог</label>
+            <input type="text" id="last-name" formControlName="lastName" placeholder="Жишээ: Болд" />
+            <small *ngIf="f['lastName'].touched && f['lastName'].invalid" class="error">Овог оруулна уу.</small>
+          </div>
+          <div class="form-group">
+            <label for="email">И-мэйл хаяг</label>
+            <input type="email" id="email" formControlName="email" placeholder="Жишээ: bat.bold@example.com" />
+            <small *ngIf="f['email'].touched && f['email'].errors?.['required']" class="error">И-мэйл оруулна уу.</small>
+            <small *ngIf="f['email'].touched && f['email'].errors?.['email']" class="error">Зөв и-мэйл оруулна уу.</small>
+          </div>
+          <div class="form-group">
+            <label for="phone">Утасны дугаар</label>
+            <input type="tel" id="phone" formControlName="phone" placeholder="Жишээ: 99112233" />
+            <small *ngIf="f['phone'].touched && f['phone'].errors?.['required']" class="error">Утасны дугаар оруулна уу.</small>
+            <small *ngIf="f['phone'].touched && f['phone'].errors?.['pattern']" class="error">8-12 оронтой дугаар оруулна уу.</small>
+          </div>
+          <div class="form-group">
+            <label for="photo">Профайл зураг</label>
+            <input type="file" id="photo" (change)="onFileChange($event)" accept="image/*" />
+            <small *ngIf="f['photo'].touched && f['photo'].invalid" class="error">Зураг оруулна уу.</small>
+            <small>Зөвхөн .jpg, .png формат, хамгийн ихдээ 5MB</small>
+          </div>
+        
+          <legend>Боловсролын мэдээлэл</legend>
+          <div class="form-group">
+            <label for="school">Сүүлд төгссөн сургууль</label>
+            <input type="text" id="school" formControlName="school" placeholder="Жишээ: Улаанбаатарын Их Сургууль" />
+            <small *ngIf="f['school'].touched && f['school'].invalid" class="error">Сургууль оруулна уу.</small>
+          </div>
+          <div class="form-group">
+            <label for="degree">Таны статус</label>
+            <select id="degree" formControlName="degree">
+              <option value="" disabled selected>Сонгох...</option>
+              <option value="admin">Админ</option>
+              <option value="teacher">Багш</option>
+              <option value="student">Оюутан</option>
+            </select>
+            <small *ngIf="f['degree'].touched && f['degree'].invalid" class="error">Статус сонгоно уу.</small>
+          </div>
+          <div class="form-group">
+            <label for="program">Сонирхож буй хөтөлбөр</label>
+            <select id="program" formControlName="program">
+              <option value="" disabled selected>Сонгох...</option>
+              <option value="viper">School of the Viper</option>
+              <option value="bear">School of the Bear</option>
+              <option value="wolf">School of the Wolf</option>
+              <option value="cat">School of the Cat</option>
+              <option value="griffin">School of the Griffin</option>
+            </select>
+            <small *ngIf="f['program'].touched && f['program'].invalid" class="error">Хөтөлбөр сонгоно уу.</small>
+          </div>
+          <div class="form-group">
+            <label for="graduation-year">Төгссөн он</label>
+            <input type="number" id="graduation-year" formControlName="graduationYear" placeholder="Жишээ: 2020" />
+            <small *ngIf="f['graduationYear'].touched && f['graduationYear'].errors?.['required']" class="error">Төгссөн он оруулна уу.</small>
+            <small *ngIf="f['graduationYear'].touched && f['graduationYear'].errors?.['pattern']" class="error">4 оронтой жил оруулна уу.</small>
+            <small *ngIf="f['graduationYear'].touched && f['graduationYear'].errors?.['min']" class="error">1900-с хойш байх ёстой.</small>
+            <small *ngIf="f['graduationYear'].touched && f['graduationYear'].errors?.['max']" class="error">2025-с хэтрэхгүй байх ёстой.</small>
+          </div>
+          <legend>Нэмэлт мэдээлэл</legend>
+          <div class="form-group">
+            <label for="motivation">Яагаад Lyf University-д элсэхийг хүсэж байна вэ?</label>
+            <textarea id="motivation" formControlName="motivation" rows="5" placeholder="Таны хүсэл эрмэлзэл, зорилгыг бичнэ үү..."></textarea>
+            <small *ngIf="f['motivation'].touched && f['motivation'].errors?.['required']" class="error">Хүсэл эрмэлзэл оруулна уу.</small>
+            <small *ngIf="f['motivation'].touched && f['motivation'].errors?.['minlength']" class="error">Хамгийн багадаа 50 тэмдэгт оруулна уу.</small>
+          </div>
+          <div class="form-group checkbox-group">
+            <input type="checkbox" id="terms" formControlName="terms" />
+            <label for="terms" class="checkbox-label">Би Lyf University-ийн <a href="#">үйлчилгээний нөхцөл</a>-ийг хүлээн зөвшөөрч байна.</label>
+            <small *ngIf="f['terms'].touched && f['terms'].invalid" class="error">Нөхцөлийг зөвшөөрнө үү.</small>
+          </div>
+        </fieldset>
+        <fieldset class="form-step">
+          <legend>Өргөдөл илгээх</legend>
+          <p>Өргөдлөө илгээхээс өмнө мэдээллээ нягталж шалгана уу.</p>
+          <div class="form-group">
+            <button type="submit" [disabled]="loading || requestAdd.invalid">Өргөдөл илгээх</button>
+          </div>
+          <div *ngIf="loading" class="loading">
+            <p>Илгээж байна...</p>
+          </div>
+          <div *ngIf="!loading">
+            <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+            <p *ngIf="submitted" class="success">Өргөдөл амжилттай илгээгдлээ!</p>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>

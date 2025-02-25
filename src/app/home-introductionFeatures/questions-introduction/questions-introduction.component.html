@@ -1,0 +1,17 @@
+<div class="wrapper">
+<div class="faq-container">
+  <h1>Түгээмэл Асуултууд</h1>
+  <div class="faq-list"> 
+    <div *ngFor="let faq of faqs; let i = index" class="faq-item" [class.open]="faq.isOpen">
+      <div class="faq-question" (click)="toggleAnswer(i)">
+        <h3>{{ faq.question }}</h3>
+        <span class="toggle-icon">{{ faq.isOpen ? '-' : '+' }}</span>
+      </div>
+      <div class="faq-answer" *ngIf="faq.isOpen">
+        <p>{{ faq.answer }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+

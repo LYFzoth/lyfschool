@@ -1,0 +1,142 @@
+<div class="wrapper">
+  <div class="parallax">
+    <h1>Welcome to Lyf University</h1>
+  </div>
+  <div class="content">
+    <div class="school-container" [class.expanded-mode]="isAnyExpanded()">
+      <div
+        class="school-card school-viper"
+        [class.expanded]="expandedSchool === 'viper'"
+        (click)="toggleExpand('viper')"
+      >
+        <h2>School of the Viper</h2>
+        <div class="school-details">
+          <p>харгис хүч чадал, уян хатан чанараараа алдартай хүчирхэг сургууль.</p>
+          <p>Баавгай сургуулийн талаарх нэмэлт мэдээлэл.</p>
+        </div>
+      </div>
+      <div
+        class="school-card school-bear"
+        [class.expanded]="expandedSchool === 'bear'"
+        (click)="toggleExpand('bear')"
+      >
+        <h2>School of the Bear</h2>
+        <div class="school-details">
+          <p>харгис хүч чадал, уян хатан чанараараа алдартай хүчирхэг сургууль.</p>
+          <p>Баавгай сургуулийн талаарх нэмэлт мэдээлэл.</p>
+        </div>
+      </div>
+      <div
+        class="school-card school-wolf"
+        [class.expanded]="expandedSchool === 'wolf'"
+        (click)="toggleExpand('wolf')"
+      >
+        <h2>School of the Wolf</h2>
+        <div class="school-details">
+          <p>A тэнцвэртэй сургууль нь багаар ажиллах, олон талт байдлыг чухалчилдаг.</p>
+          <p>Чоно сургуулийн талаарх нэмэлт мэдээлэл.</p>
+        </div>
+      </div>
+      <div
+        class="school-card school-cat"
+        [class.expanded]="expandedSchool === 'cat'"
+        (click)="toggleExpand('cat')"
+      >
+        <h2>School of the Cat</h2>
+        <div class="school-details">
+          <p>A үл үзэгдэх сургууль нь хурд, үл үзэгдэх тактикт төвлөрдөг.</p>
+          <p>Муур сургуулийн талаарх нэмэлт мэдээлэл.</p>
+        </div>
+      </div>
+      <div
+        class="school-card school-griffin"
+        [class.expanded]="expandedSchool === 'griffin'"
+        (click)="toggleExpand('griffin')"
+      >
+        <h2>School of the Griffin</h2>
+        <div class="school-details">
+          <p>довтолгооны болон хамгаалалтын тактикийг хослуулсан язгууртны сургууль.</p>
+          <p>Additional мэдээлэл Гриффин сургуулийн тухай.</p>
+        </div>
+      </div>
+    </div>
+    <div class="info">
+      <div class="top-section">
+        <div
+          class="timeline-container"
+          [class.expanded]="expandedSection === 'timeline'"
+          (click)="toggleSection('timeline')"
+        >
+          <h3>Timeline</h3>
+          <div class="timeline-details">
+            <ul class="timeline-list">
+              <li class="timeline-item">
+                <span class="timeline-year">1911</span>
+                <p class="timeline-description">Lyf University founded with the School of the Viper, focusing on strength and resilience.</p>
+              </li>
+              <li class="timeline-item">
+                <span class="timeline-year">1950</span>
+                <p class="timeline-description">School of the Bear established, expanding the university's focus on brute force.</p>
+              </li>
+              <li class="timeline-item">
+                <span class="timeline-year">1970</span>
+                <p class="timeline-description">School of the Wolf introduced, emphasizing teamwork and versatility.</p>
+              </li>
+              <li class="timeline-item">
+                <span class="timeline-year">2000</span>
+                <p class="timeline-description">School of the Cat added, bringing speed and stealth to the curriculum.</p>
+              </li>
+              <li class="timeline-item">
+                <span class="timeline-year">2023</span>
+                <p class="timeline-description">School of the Griffin launched, blending offense and defense tactics.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="rating-container">
+          <h3>University Rating</h3>
+          <div class="container-rating">
+            <div class="circular-progress" style="--progress-bar-width: 120px; --progress-bar-height: 120px;">
+              <div class="inner-circle"></div>
+              <span class="percentage">85%</span>
+            </div>
+            <p>Average Academic Rating</p>
+          </div>
+        </div>
+        <div class="black-section"></div>
+      </div>
+      <div class="bottom-section">
+        <div class="numbers">
+          <h3>Teacher and Student Numbers</h3>
+          <div class="number-detail">
+          <div class="number">12,500</div>
+          <p>Students Studying</p>
+          <div class="number">750</div>
+          <p>Teachers Working</p>
+          </div>
+        </div>
+        <div
+          class="stories-container"
+          [class.expanded]="expandedSection === 'stories'"
+          (click)="toggleSection('stories')"
+        >
+          <h3>Student/Teacher Stories</h3>
+          <div class="story-details">
+            <button (click)="previousStory()" class="nav-button left-button">←</button>
+            @for (story of stories; track $index) {
+              <p-fieldset
+                [legend]="story.title"
+                [toggleable]="true"
+                [ngClass]="{ active: activeIndex === $index }"
+                class="story-card"
+              >
+                <p>{{ story.content }}</p>
+              </p-fieldset>
+            }
+            <button (click)="nextStory()" class="nav-button right-button">→</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

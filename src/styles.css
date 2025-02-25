@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=IM+Fell+English&display=swap');
+
+body {
+    font-family: 'IM Fell English', serif; 
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    background:black;
+    height: 100%;
+    overflow: hidden;
+    all: unset;
+    color: white;
+  }
+
+html, body {
+    font-family: "Inter", serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.css-wrapper {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100%;
+}
+
+.cms-sidebar {
+    width: 300px;
+    height: 100vh;
+    background-color: #2c3e50;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+}
+
+.cms-sidebar .logo-section {
+    width: 100%;
+    height: 60px;
+    background-color: #34495e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.cms-sidebar .menu {
+    padding: 0;
+    margin: 0;
+    margin-top: 12px;
+}
+
+.cms-sidebar .menu li {
+    list-style-type: none;
+    padding: 14px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cms-sidebar .menu li:hover {
+    background-color: #34495e;
+}
+
+.cms-sidebar .bottom-section {
+    padding: 20px;
+}
+
+.cms-sidebar .bottom-section .user-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 36px;
+}
+
+.cms-sidebar .bottom-section .user-section span {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.sidesection {
+    width: 100%;
+    height: 100vh;
+    background-color: #ecf0f1;
+    padding-left: 300px;
+}
+.cms-body{
+    width: 100%;
+    height: 100vh;
+}
+.cms-body .cm-container {
+    padding: 20px;
+}
+
+.cms-body .cms-table {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cms-body .cms-table p-table th {
+    background-color: #34495e;
+    color: white;
+    padding: 10px;
+}
+
+.cms-body .cms-table p-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.cms-body .cms-table p-table tr:hover {
+    background-color: #f2f2f2;
+    color: black;
+}
+
+.cms-body .cms-table-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.cms-body .cms-dialog-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 36px;
+}
+
+.cms-body .cms-dialog-body input {
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    border: 1px solid #bdc3c7;
+}
+
+.cms-body .cms-page {
+    margin-top: 30px;
+}
+
+.cms-body .cms-page .title {
+    font-size: 36px;
+    font-weight: 500;
+    color: grey;
+}
+
+.bg-image-container {
+    width: 50%;
+    background: url('/public/figur29.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+p-button {
+    width: 100%;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+p-button:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+p-button.cancel-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: var(--p-primary-50);
+}
+
+p-button.sign-in-btn {
+    background-color: var(--p-primary-500);
+    border-color: var(--p-primary-500);
+}
+
+p-button.sign-in-btn:hover {
+    background-color: var(--p-primary-400);
+}
+
+p-inputtext {
+    background-color: rgba(240, 240, 240, 0.2);
+    border: none;
+    padding: 10px;
+    color: var(--p-primary-50);
+    border-radius: 8px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+p-inputtext:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 0 2px var(--p-primary-500);
+}
+
+p-dialog {
+    width: 30rem;
+    height: 30rem;
+    padding: 20px;
+}
+
