@@ -54,7 +54,7 @@ export class RegisterRegquestComponent {
       }
     });
 
-    this.requestService.createCollect(formData).subscribe({
+    this.requestService.storeCollect('requestAdd', this.requestAdd.getRawValue()).subscribe({
       next: (res: any) => {
         console.log('Request submitted successfully!', res);
         this.loading = false;
